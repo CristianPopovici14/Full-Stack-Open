@@ -1,4 +1,8 @@
 sequenceDiagram
+    participant user
+    participant browser
+    participant server
+
     user->>browser: User enters the page
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
     activate server

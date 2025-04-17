@@ -1,4 +1,8 @@
 sequenceDiagram
+    participant user
+    participant browser
+    participant server
+
     user->>browser: User enters the spa
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa
     activate server
