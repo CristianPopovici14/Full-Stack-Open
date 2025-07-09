@@ -11,16 +11,27 @@ const Feedback = ({ addGood, addNeutral, addBad }) => {
   )
 }
 
+const StatisticLine = ({ text, value }) => {
+  return (
+    <tr>
+      <td>{text}:</td>
+      <td>{value}</td>
+    </tr>
+  )
+}
+
 const Statistics = ({ good, neutral, bad }) => {
   return (
     <div>
       <h1>Statistics</h1>
-      <p>Good rates: {good}</p>
-      <p>Medium rates: {neutral}</p>
-      <p>Bad rates: {bad}</p>
-      <p>All rates: {good + neutral + bad}</p>
-      <p>Average: {(good*1 + neutral*0 + bad*(-1))/(good + neutral + bad)}</p>
-      <p>Positive feedbacks: {(good/(good + neutral + bad))*100}% </p>
+      <table>
+        <StatisticLine text="good" value ={good} />
+        <StatisticLine text="neutral" value ={neutral} />
+        <StatisticLine text="bad" value ={bad} />
+        <StatisticLine text="all" value ={good + neutral + bad} />
+        <StatisticLine text="average" value ={(good*1 + neutral*0 + bad*(-1))/(good + neutral + bad)} />
+        <StatisticLine text="positive" value ={(good/(good + neutral + bad))*100 + "%"} />
+      </table>
     </div>
   )
 }
